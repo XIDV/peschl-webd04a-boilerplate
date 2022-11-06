@@ -37,6 +37,23 @@
         <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
         <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
       </ul>
+      <form action="" id="searchWrapper">
+        <div class="formElementUnit">
+          <label for="searchFor">Suchbegriff</label>
+          <input type="search" name="searchFor" id="searchFor" list="searchList" autofocus>
+          <datalist id="searchList">
+            <option value="Services">
+            <option value="Über uns">
+            <option value="Kontakt">
+            <option value="Dienstleistungen">
+            <option value="Gastronomie">
+            <option value="Einzelhandel">
+            <option value="Sicherheit">
+            <option value="Instandhaltung">
+          </datalist>
+          <button type="button">Suchen</button>
+        </div>
+      </form>
     </nav>
 
     <header>
@@ -172,7 +189,93 @@
           <h2 class="sectionTitle">Kontakt</h2>
         </header>
         <div class="sectionContent">
-          <!-- insert stuff here -->
+          <p class="contentText">
+            Schreiben Sie uns. Wir melden uns umgehend bei Ihnen. (* = Pflichtfeld)
+          </p>
+          <form action="" id="contactForm">
+            <div class="formElementUnit">
+              <label>Frau
+                <input type="radio" name="gender" id="female">
+              </label>
+              <label>Herr
+                <input type="radio" name="gender" id="male">
+              </label>
+              <label>Divers
+                <input type="radio" name="gender" id="divers">
+              </label>
+            </div>
+            <div class="formElementUnit">
+              <label>Vorname
+                <input type="text" name="fName" id="fName" placeholder="Sebastian">
+              </label>
+              <label>Nachname*
+                <input type="text" name="lName" id="lName" placeholder="Peschl" required>
+              </label>
+            </div>
+            <div class="formElementUnit">
+              <label>E-Mail*
+                <input type="email" name="contactEmail" id="contactEmail" placeholder="example@web.com" required>
+              </label>
+              <label>Tel.
+                <input type="tel" name="contactTel" id="contactTel">
+              </label>
+            </div>
+
+            <div class="formElementUnit">
+              <label>Ihre Nachricht:
+                <textarea name="msgTxt" id="msgTxt" style="resize: none"></textarea>
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Ihre Adressdaten (optional)</legend>
+              <div class="formElementUnit">
+                <label >Straße
+                  <input type="text" name="adrStreet" id="adrStreet">
+                </label>
+                <label>Hausnummer
+                  <input type="number" name="adrNo" id="adrNo">
+                </label>
+              </div>
+              <div class="formElementUnit">
+                <label>PLZ
+                  <input type="number" name="adrPLZ" id="adrPLZ">
+                </label>
+                <label>
+                  <input type="text" name="adrTown" id="adrTown">
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Präferierte Kontaktaufnahme?</legend>
+              <div class="formElementUnit">
+                <label>E-Mail
+                  <input type="checkbox" name="responsePref" id="prefMailResponse">
+                </label>
+                <label>Telefon
+                  <input type="checkbox" name="responsePref" id="prefTelResponse">
+                </label>
+                <label>Rauchzeichen
+                  <input type="checkbox" name="responsePref" id="prefSmokeResponse">
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="formElementUnit">
+              <label>Anmeldung für Newsletter
+                <input type="checkbox" name="newsletter" id="newsletter">
+              </label>
+              <label>Akzeptieren Sie unsere <a href="#contact">Datenschutzerklärung</a>?
+                <input type="checkbox" name="dsgvo" id="dsgvo">
+              </label>
+            </div>
+
+            <div class="formElementUnit">
+              <button type="reset">Zurücksetzen</button>
+              <button type="submit">Senden</button>
+            </div>
+          </form>
         </div>
       </section>
     </main>
