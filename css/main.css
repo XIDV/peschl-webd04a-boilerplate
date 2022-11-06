@@ -103,8 +103,98 @@ textarea {
    ========================================================================== */
 
 
+#mainWrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* Nav global -------------------------------------------------------------- */
+
+/* mainNavButton - Styling */
+#mainNavButton {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--myDarkBlue);
+    border-radius: .5rem;
+}
+
+#mnbBar {
+    position: absolute;
+    width: 2.5rem;
+    height: .25rem;
+    background-color: white;
+    border-radius: .125rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 250ms ease-in-out;
+}
+
+#mnbBar::before,
+#mnbBar::after {
+    position: absolute;
+    width: 2.5rem;
+    height: .25rem;
+    content: "";
+    background-color: white;
+    border-radius: .25rem;
+    transition: all 250ms ease-in-out;
+}
+
+#mnbBar::before {
+    top: -.75rem;
+}
+#mnbBar::after {
+    top: .75rem;
+}
+
+#mainNavButton:hover #mnbBar {
+    background: none;
+}
+#mainNavButton:hover #mnbBar::before {
+    top: 0;
+}
+#mainNavButton:hover #mnbBar::after {
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+/* Navigationscontainer */
+.navContainer {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.mainNavLink {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
 
 
+@media screen and (min-width: 374px) {
+    #mainNav {
+        grid-column: 1 / 13;
+    }
+    
+    #mainHeader {
+        grid-column: 1 / 13;
+    }
+
+    main {
+        grid-column: 1 / 13;
+    }
+
+    #mainFooter {
+        grid-column: 1 / 13;
+    }
+
+}
 
 
 
