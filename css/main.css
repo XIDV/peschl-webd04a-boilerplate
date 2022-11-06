@@ -11,7 +11,12 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
+:root {
+    --myDarkBlue: #010C2B;
+    --myMediumBlue: #04335B;
+    --myNormalBlue: #265FA0;
+    --myLightBlue: #2AC7E5;
+}
    html {
     color: #222;
     font-size: 1em;
