@@ -175,7 +175,7 @@ textarea {
 
 .mainNavLink:hover,
 .mainNavLink:focus {
-    color: var(--myNormalBlue);
+    color: var(--myLightBlue);
 }
 
 
