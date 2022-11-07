@@ -116,54 +116,34 @@ textarea {
 
 /* mainNavButton - Styling */
 #mainNavButton {
-    position: absolute;
+    position: fixed;
     top: .5rem;
     left: .5rem;
     width: 3rem;
     height: 3rem;
     background-color: var(--myDarkBlue);
     border-radius: .5rem;
+    overflow: hidden;
 }
 
-#mnbBar {
-    position: absolute;
+.mnbBar {
+    position: relative;
     width: 2.5rem;
     height: .25rem;
     background-color: white;
     border-radius: .125rem;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     transition: all 250ms ease-in-out;
 }
-
-#mnbBar::before,
-#mnbBar::after {
+#mnbBarTop,
+#mnbBarBottom {
     position: absolute;
-    width: 2.5rem;
-    height: .25rem;
-    content: "";
-    background-color: white;
-    border-radius: .25rem;
-    transition: all 250ms ease-in-out;
 }
 
-#mnbBar::before {
-    top: -.75rem;
-}
-#mnbBar::after {
-    top: .75rem;
-}
-
-#mainNavButton:hover #mnbBar {
-    background: none;
-}
-#mainNavButton:hover #mnbBar::before {
-    top: 0;
-}
-#mainNavButton:hover #mnbBar::after {
-    transform: rotate(-90deg);
-    top: 0;
+#mainNavButton:hover .mnbBar {
+    background-color: var(--myLightBlue);
 }
 
 /* Navigationscontainer */
@@ -202,6 +182,7 @@ textarea {
 @media screen and (min-width: 374px) {
     #mainNav {
         grid-column: 1 / 13;
+        overflow: hidden;
     }
     
     #mainHeader {
