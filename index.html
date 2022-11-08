@@ -24,14 +24,22 @@
   <![endif]-->
 
   <!-- Add your site or application content here -->
+  <div id="mainNavButton">
+    <div class="mnbBar" id="mnbBarMiddle">
+      <div class="mnbBar" id="mnbBarTop"></div>
+      <div class="mnbBar" id="mnbBarBottom"></div>
+    </div>
+  </div>
   <div id="mainWrapper">
-    <nav id="mainNav">
-      <ul class="navContainer" id="pageNav">
-        <li class="mainNavItem"><a href="#welcome" class="mainNavLink">Start</a></li>
-        <li class="mainNavItem"><a href="#services" class="mainNavLink">Services</a></li>
-        <li class="mainNavItem"><a href="#about" class="mainNavLink">Über uns</a></li>
-        <li class="mainNavItem"><a href="#contact" class="mainNavLink">Kontakt</a></li>
-      </ul>
+    <nav id="pageNav">
+      <div id="mainNav">
+        <ul class="navContainer" id="pageNav">
+          <li class="mainNavItem"><a href="#welcome" class="mainNavLink">Start</a></li>
+          <li class="mainNavItem"><a href="#services" class="mainNavLink">Services</a></li>
+          <li class="mainNavItem"><a href="#about" class="mainNavLink">Über uns</a></li>
+          <li class="mainNavItem"><a href="#contact" class="mainNavLink">Kontakt</a></li>
+        </ul>
+      </div>
       <ul class="navContainer" id="socialMedia">
         <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
         <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
@@ -39,7 +47,7 @@
       </ul>
       <form action="" id="searchWrapper">
         <div class="formElementUnit">
-          <label for="searchFor">Suchbegriff</label>
+          <label for="searchFor">Suche</label>
           <input type="search" name="searchFor" id="searchFor" list="searchList" autofocus>
           <datalist id="searchList">
             <option value="Services">
@@ -51,16 +59,12 @@
             <option value="Sicherheit">
             <option value="Instandhaltung">
           </datalist>
-          <button type="button">Suchen</button>
+          <!-- <button type="button">Suchen</button> -->
         </div>
       </form>
     </nav>
-    <div id="mainNavButton">
-      <div class="mnbBar" id="mnbBarMiddle">
-        <div class="mnbBar" id="mnbBarTop"></div>
-        <div class="mnbBar" id="mnbBarBottom"></div>
-      </div>
-    </div>
+    
+    <div class="separator"></div>
 
     <header id="mainHeader">
       <div id="logoContainer">
@@ -90,6 +94,8 @@
           </p>
         </div>
       </section>
+
+      <div class="separator"></div>
       
       <section class="mainSection" id="services">
         <header class="sectionHeader">
@@ -178,8 +184,9 @@
             </aside>
           </article>
         </div>
-        
       </section>
+
+      <div class="separator"></div>
 
       <section class="mainSection" id="about">
         <header class="sectionHeader">
@@ -189,6 +196,8 @@
           <!-- insert stuff here -->
         </div>
       </section>
+
+      <div class="separator"></div>
 
       <section class="mainSection" id="contact">
         <header class="sectionHeader">

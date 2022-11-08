@@ -110,6 +110,14 @@ textarea {
     position: relative;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    overflow: hidden;
+}
+
+.separator {
+    width: 100%;
+    height: .125rem;
+    background-image: linear-gradient(to right, white, var(--myDarkBlue), white);
+    margin: 1rem 0;
 }
 
 /* Nav global -------------------------------------------------------------- */
@@ -124,6 +132,7 @@ textarea {
     background-color: var(--myDarkBlue);
     border-radius: .5rem;
     overflow: hidden;
+    z-index: 4;
 }
 
 .mnbBar {
@@ -147,16 +156,21 @@ textarea {
 }
 
 /* Navigationscontainer */
+#pageNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainNav {
+    background-color: var(--myNormalBlue);
+    border-radius: 0 0 1rem 1rem;
+}
+
 .navContainer {
     display: block;
     padding: 0;
     margin: 0;
-}
-
-#socialMedia {
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
 }
 
 .mainNavLink {
@@ -166,6 +180,7 @@ textarea {
     font: 700 2rem 'Open Sans';
     padding: .25rem;
     transition: color 250ms ease-in-out;
+    margin: 0 1rem 0 0;
 }
 
 .mainNavLink:visited,
@@ -178,11 +193,32 @@ textarea {
     color: var(--myLightBlue);
 }
 
+#searchWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
 
-@media screen and (min-width: 374px) {
-    #mainNav {
+@media screen and (max-width: 667px) {
+    #mainWrapper > *:not(nav) {
+        padding: 0 1rem;
+    }
+    #pageNav {
         grid-column: 1 / 13;
         overflow: hidden;
+    }
+
+    #socialMedia {
+        display: flex;
+        list-style: none;
+        justify-content: flex-end;
+    }
+
+    #socialMedia .mainNavLink {
+        font-size: 2rem;
+    }
+
+    .separator {
+        grid-column: 1 / 13;
     }
     
     #mainHeader {
