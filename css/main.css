@@ -186,7 +186,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background-color: hsla(0, 0%, 100%, 80%);
+    backdrop-filter: blur(.5rem);
 }
 
 #pageNav {
