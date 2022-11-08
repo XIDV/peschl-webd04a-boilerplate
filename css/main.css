@@ -108,6 +108,27 @@ body {
     font-size: 2rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--myMediumBlue);
+    font-variant: small-caps;
+}
+
+.contentInlineLink {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 250ms ease-in-out;
+}
+
+.contentInlineLink:visited,
+.contentInlineLink:link {
+    color: var(--myNormalBlue);
+}
+
+.contentInlineLink:hover,
+.contentInlineLink:focus {
+    color: var(--myLightBlue);
+}
+
 #mainWrapper {
     position: relative;
     display: grid;
@@ -228,7 +249,7 @@ body {
 
 #searchFor {
     border: solid thin var(--myDarkBlue);
-    padding: .5rem;
+    padding: .5rem 1.5rem;
     border-radius: 2rem;
 }
 
@@ -249,6 +270,49 @@ body {
 
 #pageSearch > i {
     font-family: 'Font Awesome 6 Free';
+}
+
+/* Headercontainer */
+#mainHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40vh;
+    background-image: url(/img/headerBG.jpg);
+    background-size: cover;
+}
+
+#logoContainer {
+    width: clamp(10rem, 20vw,20rem);
+    height: clamp(10rem,20vw,30rem);
+}
+
+#headerLogo {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#headerTitle {
+    margin: 0 0 0 1rem;
+}
+
+#headerSubtitle {
+    font-style: italic;
+    font-weight: 700;
+}
+
+#headerTitle,
+#headerSubtitle {
+    color: white;
+    text-align: right;
+}
+
+/* main-Container (globale Settings) */
+h2 {
+    font-size: clamp(4rem, 12vw, 8rem);
+}
+h3 {
+    font-size: clamp(4rem, 10vw, 7rem)
 }
 
 @media screen and (max-width: 667px) {
@@ -276,6 +340,10 @@ body {
     
     #mainHeader {
         grid-column: 1 / 13;
+    }
+
+    #headerTitle {
+        font-size: clamp(4rem, 15vw, 8rem);
     }
 
     main {
