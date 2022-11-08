@@ -75,5 +75,8 @@ $(function() {
         mnB.menShown = !mnB.menShown;
         mnB.menShown ? mnB.setMenuButton('openmenu') : mnB.setMenuButton('closemenu');
     });
+
+    // todo: Menü ausblenden bei Klick auf Menüeintrag  
+    // todo: viewport abfragen bzgl initialem ausblenden des Menüs ... resize ...
 });
 
