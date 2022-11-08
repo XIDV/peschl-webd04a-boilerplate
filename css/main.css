@@ -19,10 +19,10 @@
     --myNormalBlue: #265FA0;
     --myLightBlue: #2AC7E5;
 }
-   html {
+html {
     color: #222;
+    font-size: 10px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
     line-height: 1.4;
 }
 
@@ -104,20 +104,22 @@ textarea {
  /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+body {
+    font-size: 2rem;
+}
 
 #mainWrapper {
     position: relative;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .separator {
-    width: 100%;
+    width: 90%;
     height: .125rem;
     background-image: linear-gradient(to right, white, var(--myDarkBlue), white);
-    margin: 1rem 0;
+    margin: 2rem auto 0 auto;
 }
 
 /* Nav global -------------------------------------------------------------- */
@@ -127,11 +129,12 @@ textarea {
     position: fixed;
     top: .5rem;
     left: .5rem;
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
     background-color: var(--myDarkBlue);
     border-radius: .5rem;
     overflow: hidden;
+    cursor: pointer;
     z-index: 4;
 }
 
@@ -156,31 +159,39 @@ textarea {
 }
 
 /* Navigationscontainer */
-#pageNav {
+#mainNav {
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: white;
 }
 
-#mainNav {
+#pageNav {
     background-color: var(--myNormalBlue);
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 0 2rem 2rem;
+    padding: 1rem 0 1rem 0;
 }
 
-.navContainer {
+.navContainer,
+#searchWrapper {
     display: block;
     padding: 0;
-    margin: 0;
+    margin: 0 1rem 0 1rem;
 }
 
 .mainNavLink {
     display: block;
     text-align: center;
     text-decoration: none;
-    font: 700 2rem 'Open Sans';
-    padding: .25rem;
-    transition: color 250ms ease-in-out;
-    margin: 0 1rem 0 0;
+    font: 700 3rem 'Open Sans';
+    padding: 1rem;
+    transition: all 250ms ease-in-out;
+}
+
+#pageNav .mainNavLink {
+    background-color: var(--myNormalBlue);
 }
 
 .mainNavLink:visited,
@@ -191,6 +202,7 @@ textarea {
 .mainNavLink:hover,
 .mainNavLink:focus {
     color: var(--myLightBlue);
+    transform: scale(105%);
 }
 
 #searchWrapper {
@@ -198,11 +210,52 @@ textarea {
     justify-content: flex-end;
 }
 
+#searchWrapper * {
+    font: var(--myDarkBlue) 1.25rem 'Open Sans';
+    font-weight: 700;
+}
+
+#searchWrapper .formElementUnit {
+    display: inherit;
+    justify-content: inherit;
+    align-items: center;
+    gap: 0 1rem
+}
+
+#searchWrapper #searchFor {
+    width: 50%;
+}
+
+#searchFor {
+    border: solid thin var(--myDarkBlue);
+    padding: .5rem;
+    border-radius: 2rem;
+}
+
+#pageSearch {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    color: var(--myNormalBlue);
+    background-color: var(--myDarkBlue);
+    border-radius: 50%;
+    transition: color 250ms ease-in-out;
+}
+
+#pageSearch:hover {
+    color: var(--myLightBlue);
+    cursor: pointer;
+}
+
+#pageSearch > i {
+    font-family: 'Font Awesome 6 Free';
+}
+
 @media screen and (max-width: 667px) {
     #mainWrapper > *:not(nav) {
         padding: 0 1rem;
     }
-    #pageNav {
+    #mainNav {
         grid-column: 1 / 13;
         overflow: hidden;
     }
@@ -213,8 +266,8 @@ textarea {
         justify-content: flex-end;
     }
 
-    #socialMedia .mainNavLink {
-        font-size: 2rem;
+    #searchWrapper {
+        margin-top: 1rem;
     }
 
     .separator {

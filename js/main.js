@@ -2,7 +2,7 @@
 $(function() {
     console.log('Ready');
     
-    const menue = $('#mainNav');
+    const menue = $('#pageNav');
     menue.hide();
     
     const mnB = {
