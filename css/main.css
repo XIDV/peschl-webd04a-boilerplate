@@ -248,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 50%;
 }
 
-#searchFor {
+.inputElement {
     border: solid thin var(--myDarkBlue);
     padding: .5rem 1.5rem;
     border-radius: 2rem;
@@ -316,6 +316,10 @@ h3 {
     font-size: clamp(4rem, 10vw, 7rem)
 }
 
+
+/* Kontakt-Form (global Settings) */
+
+
 @media screen and (max-width: 667px) {
     #mainWrapper > *:not(nav) {
         padding: 0 1rem;
@@ -350,6 +354,27 @@ h3 {
     main {
         grid-column: 1 / 13;
     }
+
+    #contact .formElementUnit {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 1rem 0;
+    }
+
+    #contact .formElementUnit:first-of-type {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #contact .formElementContainer {
+        display: inherit;
+        flex-direction: column;
+        gap: .5rem;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
 
     #mainFooter {
         grid-column: 1 / 13;
