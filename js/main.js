@@ -1,12 +1,8 @@
 // Execute when DOM is ready ...
 $(function() {
     console.log('Ready');
-
-    console.log($(window) .width());
-
-    
     const menue = $('#pageNav');
-    menue.hide();
+    
     
     const mnB = {
         button: $('#mainNavButton'),
@@ -37,6 +33,9 @@ $(function() {
             default: {
                 topBar: {
                     'top': '-.35rem'    
+                },
+                middleBar: {
+                    'transform': 'translate(-50%, -50%) rotate(0deg)'
                 },
                 bottomBar: {
                     'top': '.6rem'    
@@ -118,7 +117,36 @@ $(function() {
         mnB.menShown ? mnB.setMenuButton('openmenu') : mnB.setMenuButton('closemenu');
     });
 
-    // todo: Menü ausblenden bei Klick auf Menüeintrag  
-    // todo: viewport abfragen bzgl initialem ausblenden des Menüs ... resize ...
+    function setMenuVisibility() {
+        if($(window).width() < 1000) {
+            menue.hide();
+            mnB.button.css({ 'display': 'block'})
+            if(mnB.menShown) {
+                resetButton();
+                mnB.menShown = !mnB.menShown;
+            }
+        } else {
+            mnB.button.css({ 'display': 'none'})
+            menue.show();
+        }
+    }
+
+    function resetButton() {
+        mnB.setMenuButton('leave');
+        mnB.setMenuButton('default');
+    }
+
+    $('.mainNavLink').on('click', () => {
+        menue.slideToggle();
+        mnB.menShown = !mnB.menShown;
+        resetButton();
+    });
+    
+    
+    setMenuVisibility();
+
+    $(window).on('resize', () => {
+        setMenuVisibility();
+    });
 });
 

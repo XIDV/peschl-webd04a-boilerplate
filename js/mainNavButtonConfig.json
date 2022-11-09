@@ -3,6 +3,9 @@
         "topBar": {
             "top": "-.35rem"    
         },
+        "middleBar": {
+            "transform": "translate(-50%, -50%) rotate(0deg)"
+        },
         "bottomBar": {
             "top": ".6rem"    
         }
