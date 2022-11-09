@@ -1,0 +1,39 @@
+{
+    "default": {
+        "topBar": {
+            "top": "-.35rem"    
+        },
+        "bottomBar": {
+            "top": ".6rem"    
+        }
+    },
+    "closedover": {
+        "topBar": {
+            "top": "0",
+            "left": "0",
+            "transform": "rotate(90deg)"
+        },
+        "bottomBar": {
+            "top": ".125rem"
+        }
+    },
+    "leave": {
+        "topBar": {
+            "transform": "translateY(-50%) rotate(0deg)",
+            "top": "-.35rem"
+        },
+        "bottomBar": {
+            "top": ".6rem"
+        }
+    },
+    "openmenu": {
+        "middleBar": {
+            "transform": "translate(-50%, -50%) rotate(45deg)"
+        }
+    },
+    "closemenu": {
+        "middleBar": {
+            "transform": "translate(-50%, -50%) rotate(0deg)"
+        }
+    }
+}

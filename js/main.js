@@ -1,6 +1,9 @@
 // Execute when DOM is ready ...
 $(function() {
     console.log('Ready');
+
+    console.log($(window) .width());
+
     
     const menue = $('#pageNav');
     menue.hide();
@@ -12,6 +15,24 @@ $(function() {
         bottomBar : $('#mnbBarBottom'),
         menShown: false,
         
+        
+        /*  
+            Aktivieren bei ausgelagerter Konfiguration des mainNavButton
+            und Verwendung des Projekts auf einem Server.
+        */ 
+        //.....................................................................
+        // config: undefined,
+        // setConfig(data) {
+        //     this.config = data;
+        // },
+        //.....................................................................
+
+        
+        /*
+            Deaktivieren bei ausgelagerter Konfiguration des mainNavButton
+            und Verwendung des Projekts auf einem Server.
+        */
+        //.....................................................................
         config: {
             default: {
                 topBar: {
@@ -51,6 +72,7 @@ $(function() {
                 }
             }
         },
+        //.....................................................................
 
         setMenuButton(status = 'default') {
             const selection = this.config[status];
@@ -60,7 +82,27 @@ $(function() {
         }
     }
 
-    mnB.setMenuButton();
+    
+    /*  
+        Aktivieren bei ausgelagerter Konfiguration des mainNavButton
+        und Verwendung des Projekts auf einem Server.
+        Ajax-Abfrage der und Initialisierung der config-Property des mnB-Objekt
+    */
+    //.........................................................................
+    // $.getJSON('/js/mainNavButtonConfig.json',
+    //     (data, textStatus, jqXHRObject) => {
+    //         mnB.setConfig(data);
+    //     });
+    //.........................................................................
+    
+    
+    /*
+        Zeitliche Verzögerung bei initialem Aufruf von setMenuButton() bei
+        Ajax-Anfrage erforderlich.
+    */
+    setTimeout(() => {
+        mnB.setMenuButton();
+    }, 50);
 
     mnB.button.on('mouseover', () => {
         mnB.setMenuButton('closedover');
