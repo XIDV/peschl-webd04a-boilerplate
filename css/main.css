@@ -106,6 +106,7 @@ textarea {
    ========================================================================== */
 body {
     font-size: 2rem;
+    background-color: var(--myDarkBlue);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -133,6 +134,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    max-width: 1200px;
+    background-color: white;
+    margin: 0 auto;
     /* overflow: hidden; */
 }
 
@@ -324,6 +328,30 @@ h3 {
     font-size: clamp(4rem, 10vw, 7rem)
 }
 
+.videoContent {
+    display: block;
+    width: 450px;
+    height: 337px;
+    margin: 0 auto;
+}
+
+.artAside {
+    color: white;
+    background-color: var(--myNormalBlue);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+figcaption.imgContent {
+    color: darkgray;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: .8rem 0;
+}
+
+img.imgContent {
+    border-radius: 1rem;
+}
 
 /* Kontakt-Form (global Settings) */
 
@@ -367,6 +395,30 @@ h3 {
         grid-column: 1 / 13;
     }
 
+    .secArt {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .secArtHeader {
+        grid-column: 1 / 6;
+    }
+
+    .artTxt {
+        grid-column: 1 / 6;
+    }
+
+    .imgContainer {
+        grid-column: 1 / 6;
+    }
+
+    .artAside {
+        grid-column: 1 / 6;
+    }
+    
+    .imgContent {
+        width: 100%;
+    }
+
     #contact .formElementUnit {
         display: flex;
         flex-direction: column;
@@ -400,6 +452,18 @@ h3 {
         justify-content: flex-end;
         align-items: center;
     }
+
+    .videoContent {
+        float: right;
+    }
+
+    .artTxt {
+        grid-column: 1 / 4;
+    }
+
+    .imgContainer {
+        grid-column: 4 / 6;
+    }
 }
 
 
@@ -417,6 +481,7 @@ h3 {
 
 
 @media screen and (min-width: 1200px) {
+    
 }
 
 

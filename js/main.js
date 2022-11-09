@@ -137,9 +137,11 @@ $(function() {
     }
 
     $('.mainNavLink').on('click', () => {
-        menue.slideToggle();
-        mnB.menShown = !mnB.menShown;
-        resetButton();
+        if($(window).width() < 1000) {
+            menue.slideToggle();
+            mnB.menShown = !mnB.menShown;
+            resetButton();
+        }
     });
     
     
