@@ -150,5 +150,106 @@ $(function() {
     $(window).on('resize', () => {
         setMenuVisibility();
     });
+
+
+    //  =======================================================================
+    //  fancy canvas stuff
+    initMyNameCanvas();
 });
 
+function initMyNameCanvas() {
+    const myNameCanvas = $('#myName');
+    const ctx = myNameCanvas[0].getContext('2d');
+
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 2;
+    ctx.translate(20, 20);
+
+    drawLetter(ctx, 'capS');
+    ctx.translate(20, 0);
+    drawLetter(ctx, 'minN');
+}
+
+function drawLetter(ctx, letter) {
+    // hole passendes letter
+    // schreibe letter auf canvas
+    const currentLetter = letters[letter];
+    console.log(currentLetter);
+    ctx.beginPath();
+    for(i = 0; i < currentLetter.length; i++) {
+        const cmd = currentLetter[i].cmd
+        const param = currentLetter[i].param
+        console.log(cmd+param);
+        
+        ctx[cmd](param.x, param.y);
+    }
+    ctx.stroke();
+    ctx.closePath();
+}
+
+const letters = {
+    capS: [
+        { cmd: 'moveTo', param: { x: 16, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0 , y: 0 } },
+        { cmd: 'lineTo', param: { x: 0, y: 12 } },
+        { cmd: 'lineTo', param: { x: 16, y: 12 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+    ],
+    minS: [
+        { cmd: 'moveTo', param: { x: 16, y: 8 } },
+        { cmd: 'lineTo', param: { x: 0 , y: 8 } },
+        { cmd: 'lineTo', param: { x: 0, y: 16 } },
+        { cmd: 'lineTo', param: { x: 16, y: 16 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+    ],
+    capP: [
+        { cmd: 'moveTo', param: { x: 0, y: 12 } },
+        { cmd: 'lineTo', param: { x: 16 , y: 12 } },
+        { cmd: 'lineTo', param: { x: 16, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+    ],
+    minE: [
+        { cmd: 'moveTo', param: { x: 0, y: 16 } },
+        { cmd: 'lineTo', param: { x: 16 , y: 16 } },
+        { cmd: 'lineTo', param: { x: 16, y: 8 } },
+        { cmd: 'lineTo', param: { x: 0, y: 8 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+    ],
+    minA: [
+        { cmd: 'moveTo', param: { x: 16, y: 6 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+        { cmd: 'moveTo', param: { x: 16, y: 20 } },
+        { cmd: 'lineTo', param: { x: 12, y: 24 } },
+        { cmd: 'lineTo', param: { x: 4, y: 24 } },
+        { cmd: 'lineTo', param: { x: 0, y: 20 } },
+        { cmd: 'lineTo', param: { x: 0, y: 12 } },
+        { cmd: 'lineTo', param: { x: 4, y: 8 } },
+        { cmd: 'lineTo', param: { x: 12, y: 8 } },
+        { cmd: 'lineTo', param: { x: 16, y: 12 } },
+    ],
+    minB: [
+        { cmd: 'moveTo', param: { x: 0, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: 'lineTo', param: { x: 12, y: 24 } },
+        { cmd: 'lineTo', param: { x: 16, y: 20 } },
+        { cmd: 'lineTo', param: { x: 16, y: 16 } },
+        { cmd: 'lineTo', param: { x: 12, y: 12 } },
+        { cmd: 'lineTo', param: { x: 0, y: 12 } },
+    ],
+    minT: [
+        { cmd: 'moveTo', param: { x: 4, y: 0 } },
+        { cmd: 'lineTo', param: { x: 4, y: 20 } },
+        { cmd: 'lineTo', param: { x: 8, y: 24 } },
+        { cmd: 'lineTo', param: { x: 12, y: 20 } },
+        { cmd: 'moveTo', param: { x: 0, y: 8 } },
+        { cmd: 'lineTo', param: { x: 12, y: 8 } },
+    ],
+    minN: [
+        { cmd: 'moveTo', param: { x: 24, y: 24 } },
+        // hier weiter ...
+    ]
+}

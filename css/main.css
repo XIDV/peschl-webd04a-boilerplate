@@ -357,9 +357,13 @@ img.imgContent {
     border-radius: 1rem;
 }
 
-/* Kontakt-Form (global Settings) */
+#myName {
+    width: 350;
+    height: 100;
+    border: solid thin var(--myDarkBlue);
+}
 
-
+/* Media-Queries */
 @media screen and (min-width: 1px) {
     #mainWrapper > *:not(nav) {
         padding: 0 1rem;
@@ -423,6 +427,11 @@ img.imgContent {
         width: 100%;
     }
 
+    #myName {
+        display: block;
+        margin: 0 auto;
+    }
+
     #contact .formElementUnit {
         display: flex;
         flex-direction: column;
@@ -467,6 +476,10 @@ img.imgContent {
 
     .imgContainer {
         grid-column: 4 / 6;
+    }
+
+    #myName {
+        margin: 0 0 0 auto;
     }
 }
 
