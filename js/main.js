@@ -165,9 +165,11 @@ function initMyNameCanvas() {
     ctx.lineWidth = 2;
     ctx.translate(20, 20);
 
+    
+
     drawLetter(ctx, 'capS');
     ctx.translate(20, 0);
-    drawLetter(ctx, 'minN');
+    drawLetter(ctx, 'minI');
 }
 
 function drawLetter(ctx, letter) {
@@ -180,8 +182,13 @@ function drawLetter(ctx, letter) {
         const cmd = currentLetter[i].cmd
         const param = currentLetter[i].param
         console.log(cmd+param);
-        
-        ctx[cmd](param.x, param.y);
+        if(cmd == 'moveTo' || cmd == 'lineTo') {
+            ctx[cmd](param.x, param.y);
+        } else if(cmd == 'arc') {
+            ctx[cmd](param.x, param.y, param.rad, param.start, param.end);
+        } else {
+            console.log('Unknown cmd');
+        }
     }
     ctx.stroke();
     ctx.closePath();
@@ -249,7 +256,38 @@ const letters = {
         { cmd: 'lineTo', param: { x: 12, y: 8 } },
     ],
     minN: [
-        { cmd: 'moveTo', param: { x: 24, y: 24 } },
-        // hier weiter ...
+        { cmd: 'moveTo', param: { x: 16, y: 24 } },
+        { cmd: 'lineTo', param: { x: 16, y: 16 } },
+        { cmd: 'lineTo', param: { x: 12, y: 12 } },
+        { cmd: 'lineTo', param: { x: 4, y: 12 } },
+        { cmd: 'lineTo', param: { x: 0, y: 16 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: 'lineTo', param: { x: 0, y: 10 } },
+    ],
+    minC: [
+        { cmd: 'moveTo', param: { x: 16, y: 12 } },
+        { cmd: 'lineTo', param: { x: 4, y: 12 } },
+        { cmd: 'lineTo', param: { x: 0, y: 16 } },
+        { cmd: 'lineTo', param: { x: 0, y: 20 } },
+        { cmd: 'lineTo', param: { x: 4, y: 24 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+    ],
+    minH: [
+        { cmd: 'moveTo', param: { x: 0, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: 'moveTo', param: { x: 0, y: 12 } },
+        { cmd: 'lineTo', param: { x: 12, y: 12 } },
+        { cmd: 'lineTo', param: { x: 16, y: 16 } },
+        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+    ],
+    minL: [
+        { cmd: 'moveTo', param: { x: 8, y: 0 } },
+        { cmd: 'lineTo', param: { x: 8, y: 24 } },
+    ],
+    minI: [
+        { cmd: 'moveTo', param: { x: 8, y: 24 } },
+        { cmd: 'lineTo', param: { x: 8, y: 12 } },
+        { cmd: 'moveTo', param: { x: 8, y: 4 } },
+        { cmd: "arc", param: {x: 8, y: 4, rad: 1, start: 0, end: Math.PI * 2}}
     ]
 }
