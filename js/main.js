@@ -165,23 +165,24 @@ function initMyNameCanvas() {
     ctx.lineWidth = 2;
     ctx.translate(20, 20);
 
+    const cmdStack = getCmdStack('Sebastian Seb Peschl');
     
+    for(let i = 0; i < cmdStack.length; i++) {
+        if(cmdStack[i].length) {
+            drawLetter(ctx, cmdStack[i]);
+        } else {
+            ctx[cmdStack[i].cmd](cmdStack[i].param.x,cmdStack[i].param.y);
+        }
+    }
 
-    drawLetter(ctx, 'capS');
-    ctx.translate(20, 0);
-    drawLetter(ctx, 'minI');
 }
 
+// schreibe einen Buchstaben auf den Canvas
 function drawLetter(ctx, letter) {
-    // hole passendes letter
-    // schreibe letter auf canvas
-    const currentLetter = letters[letter];
-    console.log(currentLetter);
     ctx.beginPath();
-    for(i = 0; i < currentLetter.length; i++) {
-        const cmd = currentLetter[i].cmd
-        const param = currentLetter[i].param
-        console.log(cmd+param);
+    for(i = 0; i < letter.length; i++) {
+        const cmd = letter[i].cmd
+        const param = letter[i].param
         if(cmd == 'moveTo' || cmd == 'lineTo') {
             ctx[cmd](param.x, param.y);
         } else if(cmd == 'arc') {
@@ -194,8 +195,9 @@ function drawLetter(ctx, letter) {
     ctx.closePath();
 }
 
+// erforderliche Buchstaben als moveTo-, lineTo- und arc-Anweisungen (könnte auch in json ausgelagert werden)
 const letters = {
-    capS: [
+    S: [
         { cmd: 'moveTo', param: { x: 16, y: 0 } },
         { cmd: 'lineTo', param: { x: 0 , y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 12 } },
@@ -203,7 +205,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
     ],
-    minS: [
+    s: [
         { cmd: 'moveTo', param: { x: 16, y: 8 } },
         { cmd: 'lineTo', param: { x: 0 , y: 8 } },
         { cmd: 'lineTo', param: { x: 0, y: 16 } },
@@ -211,14 +213,14 @@ const letters = {
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
     ],
-    capP: [
+    P: [
         { cmd: 'moveTo', param: { x: 0, y: 12 } },
         { cmd: 'lineTo', param: { x: 16 , y: 12 } },
         { cmd: 'lineTo', param: { x: 16, y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
     ],
-    minE: [
+    e: [
         { cmd: 'moveTo', param: { x: 0, y: 16 } },
         { cmd: 'lineTo', param: { x: 16 , y: 16 } },
         { cmd: 'lineTo', param: { x: 16, y: 8 } },
@@ -226,7 +228,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
     ],
-    minA: [
+    a: [
         { cmd: 'moveTo', param: { x: 16, y: 6 } },
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
         { cmd: 'moveTo', param: { x: 16, y: 20 } },
@@ -238,7 +240,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 12, y: 8 } },
         { cmd: 'lineTo', param: { x: 16, y: 12 } },
     ],
-    minB: [
+    b: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
         { cmd: 'lineTo', param: { x: 12, y: 24 } },
@@ -247,7 +249,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 12, y: 12 } },
         { cmd: 'lineTo', param: { x: 0, y: 12 } },
     ],
-    minT: [
+    t: [
         { cmd: 'moveTo', param: { x: 4, y: 0 } },
         { cmd: 'lineTo', param: { x: 4, y: 20 } },
         { cmd: 'lineTo', param: { x: 8, y: 24 } },
@@ -255,7 +257,7 @@ const letters = {
         { cmd: 'moveTo', param: { x: 0, y: 8 } },
         { cmd: 'lineTo', param: { x: 12, y: 8 } },
     ],
-    minN: [
+    n: [
         { cmd: 'moveTo', param: { x: 16, y: 24 } },
         { cmd: 'lineTo', param: { x: 16, y: 16 } },
         { cmd: 'lineTo', param: { x: 12, y: 12 } },
@@ -264,7 +266,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
         { cmd: 'lineTo', param: { x: 0, y: 10 } },
     ],
-    minC: [
+    c: [
         { cmd: 'moveTo', param: { x: 16, y: 12 } },
         { cmd: 'lineTo', param: { x: 4, y: 12 } },
         { cmd: 'lineTo', param: { x: 0, y: 16 } },
@@ -272,7 +274,7 @@ const letters = {
         { cmd: 'lineTo', param: { x: 4, y: 24 } },
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
     ],
-    minH: [
+    h: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 24 } },
         { cmd: 'moveTo', param: { x: 0, y: 12 } },
@@ -280,14 +282,52 @@ const letters = {
         { cmd: 'lineTo', param: { x: 16, y: 16 } },
         { cmd: 'lineTo', param: { x: 16, y: 24 } },
     ],
-    minL: [
+    l: [
         { cmd: 'moveTo', param: { x: 8, y: 0 } },
         { cmd: 'lineTo', param: { x: 8, y: 24 } },
     ],
-    minI: [
+    i: [
         { cmd: 'moveTo', param: { x: 8, y: 24 } },
         { cmd: 'lineTo', param: { x: 8, y: 12 } },
         { cmd: 'moveTo', param: { x: 8, y: 4 } },
         { cmd: "arc", param: {x: 8, y: 4, rad: 1, start: 0, end: Math.PI * 2}}
     ]
+}
+
+// generiere ein Array mit der erforderlichen Komandoabfolge
+function getCmdStack(nameString) {
+    const stringBreaks = getStringBreaks(nameString);
+    
+    let substrings = [];
+    if(stringBreaks.length != 0) {
+        for(let i = 0; i < stringBreaks.length; i++) {
+            substrings.push(nameString.substring(stringBreaks[i], stringBreaks[i+1] || nameString.length));
+        }
+    }
+
+    let cmdStack = [];
+
+    for(let i = 0; i < substrings.length; i++) {
+        let writtenLetter = 0;
+        for(let j = 0; j < substrings[i].length; j++) {
+            if(letters[substrings[i][j]]) {
+                cmdStack.push(letters[substrings[i][j]]);
+                writtenLetter++;
+                cmdStack.push({ cmd: 'translate', param: { x: 20, y: 0 } });
+            }
+        }
+        cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter * 20), y: 30 } });
+    }
+    return cmdStack;
+}
+
+// lokalisiere alle Leerstellen im String und geben Array mit den Indices zurück
+function getStringBreaks(someString) {
+    let breakIndices = [0];
+    for(let i = 0; i < someString.length; i++) {
+        if(someString[i] == ' ') {
+            breakIndices.push(i);
+        }
+    }
+    return breakIndices;
 }
