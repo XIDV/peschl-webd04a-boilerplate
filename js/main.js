@@ -163,6 +163,7 @@ function initMyNameCanvas() {
 
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
+    ctx.lineCap = "round";
     ctx.translate(20, 20);
 
     const cmdStack = getCmdStack('Sebastian Seb Peschl');
@@ -186,7 +187,7 @@ function drawLetter(ctx, letter) {
         if(cmd == 'moveTo' || cmd == 'lineTo') {
             ctx[cmd](param.x, param.y);
         } else if(cmd == 'arc') {
-            ctx[cmd](param.x, param.y, param.rad, param.start, param.end);
+            ctx[cmd](param.x, param.y, param.rad, param.start, param.end, param.dir);
         } else {
             console.log('Unknown cmd');
         }
@@ -198,47 +199,33 @@ function drawLetter(ctx, letter) {
 // erforderliche Buchstaben als moveTo-, lineTo- und arc-Anweisungen (könnte auch in json ausgelagert werden)
 const letters = {
     S: [
-        { cmd: 'moveTo', param: { x: 16, y: 0 } },
-        { cmd: 'lineTo', param: { x: 0 , y: 0 } },
-        { cmd: 'lineTo', param: { x: 0, y: 12 } },
-        { cmd: 'lineTo', param: { x: 16, y: 12 } },
-        { cmd: 'lineTo', param: { x: 16, y: 24 } },
-        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: "moveTo", param: { x: 14, y: 7 }},
+        { cmd: "arc", param: {x: 7, y: 7, rad: 7, start: 0, end: Math.PI * .5, dir: true}},
+        { cmd: "moveTo", param: { x: 0, y: 21 }},
+        { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: Math.PI * 1, end: Math.PI * -1.5, dir: true}},
     ],
     s: [
-        { cmd: 'moveTo', param: { x: 16, y: 8 } },
-        { cmd: 'lineTo', param: { x: 0 , y: 8 } },
-        { cmd: 'lineTo', param: { x: 0, y: 16 } },
-        { cmd: 'lineTo', param: { x: 16, y: 16 } },
-        { cmd: 'lineTo', param: { x: 16, y: 24 } },
-        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: "moveTo", param: { x: 8, y: 16 }},
+        { cmd: "arc", param: {x: 4, y: 16, rad: 4, start: 0, end: Math.PI * .5, dir: true}},
+        { cmd: "moveTo", param: { x: 0, y: 24 }},
+        { cmd: "arc", param: {x: 4, y: 24, rad: 4, start: Math.PI * 1, end: Math.PI * -1.5, dir: true}},
     ],
     P: [
-        { cmd: 'moveTo', param: { x: 0, y: 12 } },
-        { cmd: 'lineTo', param: { x: 16 , y: 12 } },
-        { cmd: 'lineTo', param: { x: 16, y: 0 } },
-        { cmd: 'lineTo', param: { x: 0, y: 0 } },
-        { cmd: 'lineTo', param: { x: 0, y: 24 } },
+        { cmd: 'moveTo', param: { x: 0, y: 0 } },
+        { cmd: 'lineTo', param: { x: 0 , y: 28 } },
+        { cmd: 'moveTo', param: { x: 0, y: 0 } },
+        { cmd: 'lineTo', param: { x: 5, y: 0 } },
+        { cmd: "arc", param: {x: 5, y: 7, rad: 7, start: Math.PI * -.5, end: Math.PI * 1.5, dir: false}},
+        { cmd: 'lineTo', param: { x: 0, y: 14 } },
     ],
     e: [
-        { cmd: 'moveTo', param: { x: 0, y: 16 } },
-        { cmd: 'lineTo', param: { x: 16 , y: 16 } },
-        { cmd: 'lineTo', param: { x: 16, y: 8 } },
-        { cmd: 'lineTo', param: { x: 0, y: 8 } },
-        { cmd: 'lineTo', param: { x: 0, y: 24 } },
-        { cmd: 'lineTo', param: { x: 16, y: 24 } },
+        { cmd: 'moveTo', param: { x: 0, y: 21 } },
+        { cmd: 'lineTo', param: { x: 14 , y: 21 } },
+        { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: 0, end: Math.PI * .75, dir: true}},
     ],
     a: [
-        { cmd: 'moveTo', param: { x: 16, y: 6 } },
-        { cmd: 'lineTo', param: { x: 16, y: 24 } },
-        { cmd: 'moveTo', param: { x: 16, y: 20 } },
-        { cmd: 'lineTo', param: { x: 12, y: 24 } },
-        { cmd: 'lineTo', param: { x: 4, y: 24 } },
-        { cmd: 'lineTo', param: { x: 0, y: 20 } },
-        { cmd: 'lineTo', param: { x: 0, y: 12 } },
-        { cmd: 'lineTo', param: { x: 4, y: 8 } },
-        { cmd: 'lineTo', param: { x: 12, y: 8 } },
-        { cmd: 'lineTo', param: { x: 16, y: 12 } },
+        { cmd: 'moveTo', param: { x: 9, y: 26 } },
+        { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: .75, end: 1.75, dir: false}},
     ],
     b: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
@@ -316,7 +303,7 @@ function getCmdStack(nameString) {
                 cmdStack.push({ cmd: 'translate', param: { x: 20, y: 0 } });
             }
         }
-        cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter * 20), y: 30 } });
+        cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter * 20), y: 35 } });
     }
     return cmdStack;
 }
