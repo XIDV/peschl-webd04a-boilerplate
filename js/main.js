@@ -166,8 +166,8 @@ function initMyNameCanvas() {
     ctx.lineCap = "round";
     ctx.translate(20, 20);
 
-    const cmdStack = getCmdStack('Sebastian Seb Peschl');
-    
+    const cmdStack = getCmdStack('Sebastian Peschl');   
+        
     for(let i = 0; i < cmdStack.length; i++) {
         if(cmdStack[i].length) {
             drawLetter(ctx, cmdStack[i]);
@@ -189,7 +189,7 @@ function drawLetter(ctx, letter) {
         } else if(cmd == 'arc') {
             ctx[cmd](param.x, param.y, param.rad, param.start, param.end, param.dir);
         } else {
-            console.log('Unknown cmd');
+            // console.log('Unknown cmd');
         }
     }
     ctx.stroke();
@@ -203,12 +203,18 @@ const letters = {
         { cmd: "arc", param: {x: 7, y: 7, rad: 7, start: 0, end: Math.PI * .5, dir: true}},
         { cmd: "moveTo", param: { x: 0, y: 21 }},
         { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: Math.PI * 1, end: Math.PI * -.5, dir: true}},
+        config = { 
+            width: 15
+        }
     ],
     s: [
         { cmd: "moveTo", param: { x: 8, y: 16 }},
         { cmd: "arc", param: {x: 4, y: 16, rad: 4, start: 0, end: Math.PI * .5, dir: true}},
         { cmd: "moveTo", param: { x: 0, y: 24 }},
         { cmd: "arc", param: {x: 4, y: 24, rad: 4, start: Math.PI * 1, end: Math.PI * -.5, dir: true}},
+        config = {
+            width: 9
+        }
     ],
     P: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
@@ -217,17 +223,26 @@ const letters = {
         { cmd: 'lineTo', param: { x: 5, y: 0 } },
         { cmd: "arc", param: {x: 5, y: 7, rad: 7, start: Math.PI * -.5, end: Math.PI * .5, dir: false}},
         { cmd: 'lineTo', param: { x: 0, y: 14 } },
+        config = {
+            width: 13
+        }
     ],
     e: [
         { cmd: 'moveTo', param: { x: 0, y: 21 } },
         { cmd: 'lineTo', param: { x: 14 , y: 21 } },
         { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: 0, end: Math.PI * .25, dir: true}},
+        config = {
+            width: 15
+        }
     ],
     a: [
         { cmd: 'moveTo', param: { x: 10, y: 14 } },
         { cmd: 'lineTo', param: { x: 10 , y: 28 } },
         { cmd: 'moveTo', param: { x: 10, y: 25 } },
         { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: Math.PI * .4, end: Math.PI * 1.6, dir: false}},
+        config = {
+            width: 11
+        }
     ],
     b: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
@@ -235,6 +250,9 @@ const letters = {
         { cmd: 'lineTo', param: { x: 5, y: 28 } },
         { cmd: "arc", param: {x: 5, y: 21, rad: 7, start: Math.PI * .5, end: Math.PI * 1.5, dir: true}},
         { cmd: 'lineTo', param: { x: 0, y: 14 } },
+        config = {
+            width: 13
+        }
     ],
     t: [
         { cmd: 'moveTo', param: { x: 0, y: 8 } },
@@ -242,6 +260,9 @@ const letters = {
         { cmd: 'moveTo', param: { x: 3, y: 0 } },
         { cmd: 'lineTo', param: { x: 3, y: 25 } },
         { cmd: "arc", param: {x: 6, y: 25, rad: 3, start: Math.PI * 1, end: Math.PI * 0, dir: true}},
+        config = {
+            width: 10
+        }
     ],
     n: [
         { cmd: 'moveTo', param: { x: 0, y: 14 } },
@@ -249,12 +270,18 @@ const letters = {
         { cmd: 'moveTo', param: { x: 0, y: 18 } },
         { cmd: "arc", param: {x: 4, y: 18, rad: 4, start: Math.PI * 1, end: Math.PI * 0, dir: false}},
         { cmd: 'lineTo', param: { x: 8, y: 28 } },
+        config = {
+            width: 9
+        }
     ],
     c: [
         { cmd: 'moveTo', param: { x: 9, y: 14 } },
         { cmd: 'lineTo', param: { x: 7, y: 14 } },
         { cmd: "arc", param: {x: 7, y: 21, rad: 7, start: Math.PI * 1.5, end: Math.PI * .5, dir: true}},
         { cmd: 'lineTo', param: { x: 9, y: 28 } },
+        config = {
+            width: 10
+        }
     ],
     h: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
@@ -264,16 +291,25 @@ const letters = {
         { cmd: 'lineTo', param: { x: 6, y: 14 } },
         { cmd: "arc", param: {x: 6, y: 18, rad: 4, start: Math.PI * 1.5, end: Math.PI * 0, dir: false}},
         { cmd: 'lineTo', param: { x: 10, y: 28 } },
+        config = {
+            width: 11
+        }
     ],
     l: [
         { cmd: 'moveTo', param: { x: 0, y: 0 } },
         { cmd: 'lineTo', param: { x: 0, y: 28 } },
+        config = {
+            width: 1
+        }
     ],
     i: [
         { cmd: 'moveTo', param: { x: 1, y: 14 } },
         { cmd: 'lineTo', param: { x: 1, y: 28 } },
         { cmd: 'moveTo', param: { x: 2, y: 8 } },
-        { cmd: "arc", param: {x: 1, y: 8, rad: 1, start: 0, end: Math.PI * 2}}
+        { cmd: "arc", param: {x: 1, y: 8, rad: 1, start: 0, end: Math.PI * 2}},
+        config = {
+            width: 1
+        }
     ]
 }
 
@@ -294,12 +330,15 @@ function getCmdStack(nameString) {
         let writtenLetter = 0;
         for(let j = 0; j < substrings[i].length; j++) {
             if(letters[substrings[i][j]]) {
+                
+                const letterOffset = letters[substrings[i][j]][letters[substrings[i][j]].length - 1].width + 5;
                 cmdStack.push(letters[substrings[i][j]]);
-                writtenLetter++;
-                cmdStack.push({ cmd: 'translate', param: { x: 20, y: 0 } });
+                writtenLetter += letterOffset;
+                cmdStack.push({ cmd: 'translate', param: { x: letterOffset, y: 0 } });
             }
         }
-        cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter * 20), y: 35 } });
+        cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter), y: 35 } });
+        writtenLetter = 0;
     }
     return cmdStack;
 }
