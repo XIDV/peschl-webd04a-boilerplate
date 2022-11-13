@@ -382,6 +382,17 @@ img.imgContent {
     color: var(--myLightBlue);
 }
 
+#mainFooter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font: 1.5rem 'Open Sans';
+    color: white;
+    background-color: var(--myNormalBlue);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
 /* Media-Queries */
 @media screen and (min-width: 1px) {
     #mainWrapper > *:not(nav) {
