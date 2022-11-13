@@ -244,7 +244,8 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: flex-end;
 }
 
-#searchWrapper * {
+#searchWrapper *,
+#contactForm {
     font: var(--myDarkBlue) 1.25rem 'Open Sans';
     font-weight: 700;
 }
@@ -260,6 +261,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 50%;
 }
 
+.contactFormButton,
 .inputElement {
     border: solid thin var(--myDarkBlue);
     padding: .5rem 1.5rem;
@@ -357,10 +359,27 @@ img.imgContent {
     border-radius: 1rem;
 }
 
+#contactForm > .formElementUnit:last-of-type {
+    margin: 3rem 0;
+}
+
 #myName {
     width: 350;
     height: 100;
     border: solid thin var(--myDarkBlue);
+}
+
+.contactFormButton {
+    width: 20rem;
+    font: 700 2.5rem 'Open Sans';
+    color: var(--myNormalBlue);
+    background-color: var(--myDarkBlue);
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.contactFormButton:hover {
+    color: var(--myLightBlue);
 }
 
 /* Media-Queries */
@@ -432,11 +451,15 @@ img.imgContent {
         margin: 0 auto;
     }
 
+    fieldset {
+        margin: 1.5rem 0;
+    }
+
     #contact .formElementUnit {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin: 1rem 0;
+        gap: 1rem;
     }
 
     #contact .formElementUnit:first-of-type {
@@ -452,6 +475,9 @@ img.imgContent {
         margin: 1rem 0;
     }
 
+    #msgTxt {
+        height: 20vh;
+    }
 
     #mainFooter {
         grid-column: 1 / 13;
@@ -493,6 +519,21 @@ img.imgContent {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    #contact .formElementUnit {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    #contact .formElementUnit:first-of-type {
+        flex-wrap: nowrap;
+    }
+
+    #msgTxt {
+        width: 80%;
+        height: 20vh;
+        margin: 0 auto;
     }
 }
 
