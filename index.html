@@ -295,6 +295,20 @@
               </div>
             </div>
 
+            <div class="formElementUnit">
+              <div class="formElementContainer">
+                <label for="numOfTraveler">Durchschnittl. Anz. der Reisenden pro Tag</label>
+                <input type="range" name="numOfTraveler" id="numOfTraveler" class="inputElement" list="travelerSteps" min="100000" max="500000" step="1000">
+                <datalist id="travelerSteps">
+                  <option value="100000" label="ca. 100.000"></option>
+                  <option value="200000" label="ca. 200.000"></option>
+                  <option value="300000" label="ca. 300.000"></option>
+                  <option value="400000" label="ca. 400.000"></option>
+                  <option value="500000" label="ca. 500.000 oder mehr"></option>
+                </datalist>
+              </div>
+            </div>
+
             <fieldset id="cFormPostAdr">
               <legend>Ihre Adressdaten (optional)</legend>
               <div class="formElementUnit">

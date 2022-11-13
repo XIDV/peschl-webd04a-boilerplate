@@ -379,6 +379,14 @@ img.imgContent {
     transition: all 250ms ease-in-out;
 }
 
+#travelerSteps {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    writing-mode: vertical-lr;
+}
+
 .contactFormButton:hover {
     color: var(--myLightBlue);
 }
