@@ -112,6 +112,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: var(--myMediumBlue);
     font-variant: small-caps;
+    margin: 1em 0 .25em 0;
 }
 
 .contentInlineLink {
@@ -236,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 .mainNavLink:hover,
 .mainNavLink:focus {
     color: var(--myLightBlue);
-    transform: scale(105%);
+    transform: scale(1.05);
 }
 
 #searchWrapper {
@@ -348,6 +349,10 @@ h3 {
     border-radius: 1rem;
 }
 
+.artAside > details {
+    cursor: pointer;
+}
+
 figcaption.imgContent {
     color: darkgray;
     font-size: 1.5rem;
@@ -365,8 +370,8 @@ img.imgContent {
 }
 
 #myName {
-    width: 350;
-    height: 100;
+    width: 350px;
+    height: 100px;
     border: solid thin var(--myDarkBlue);
 }
 

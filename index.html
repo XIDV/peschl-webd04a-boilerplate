@@ -25,7 +25,7 @@
 
   <!-- Add your site or application content here -->
   <div id="startAncor"></div>
-  <div id="mainNavButton" title="Navigation einblenden">
+  <div id="mainNavButton" title="Navigation ein-/ ausblenden">
     <div class="mnbBar" id="mnbBarMiddle">
       <div class="mnbBar" id="mnbBarTop"></div>
       <div class="mnbBar" id="mnbBarBottom"></div>
@@ -44,11 +44,11 @@
       </div>
       <div id="secondNav">
         <ul class="navContainer" id="socialMedia">
-          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank" title="externer Link zu Twitter"><i class="fa-brands fa-twitter"></i></a></li>
+          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank" title="externer Link zu fa-facebook-f"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li class="mainNavItem"><a href="#" class="mainNavLink" target="_blank" title="externer Link zu Instagram"><i class="fa-brands fa-instagram"></i></a></li>
         </ul>
-        <form action="" id="searchWrapper">
+        <form id="searchWrapper">
           <div class="formElementUnit">
             <label for="searchFor">Suche</label>
             <input type="search" name="searchFor" id="searchFor" class="inputElement" list="searchList" autofocus>
@@ -62,7 +62,7 @@
               <option value="Sicherheit">
               <option value="Instandhaltung">
             </datalist>
-            <button type="button" id="pageSearch"><i class="fa-solid fa-binoculars"></i></button>
+            <button type="button" id="pageSearch"><i class="fa-solid fa-binoculars" title="Seite durchsuchen"></i></button>
           </div>
         </form>
       </div>
@@ -99,7 +99,7 @@
           </p>
           <p class="contentText">
             Wir stehen als starker Partner an Ihrer Seite um dem ein Ende zu setzen. Unser Anspruch ist es mit Ihnen gemeinsam Ihre U-Bahnhöfe aus dem buchstäblichen Schattendasein zu befördern und somit die Attraktivität dieser Transportform in seiner Gesamtheit signifikant zu steigern. <br>
-            Profitieren Sie von unserer Erfahrung und unseren kompetenten und zuverlässigen Kooperationspartnern. Wir stehen Ihnen jederzeit für Fragen zur Verfügung. Vereinbaren Sie noch heute ein individuelles Beratungsgespräch. Gerne stellen wir Ihnen unser Portfolio in einem persönlichen Gespräch vor. Verwenden Sie unser <a class="contentInlineLink" href="#contact">Kontaktformular</a> und machen Sie den ersten Schritt.
+            Profitieren Sie von unserer Erfahrung und unseren kompetenten und zuverlässigen Kooperationspartnern. Wir stehen Ihnen jederzeit für Fragen zur Verfügung. Vereinbaren Sie noch heute ein individuelles Beratungsgespräch. Gerne stellen wir Ihnen unser Portfolio in einem persönlichen Gespräch vor. Verwenden Sie unser <a class="contentInlineLink" href="#contact" title="zum Kontaltformular springen">Kontaktformular</a> und machen Sie den ersten Schritt.
           </p>
           <!-- </div> -->
         </div>
@@ -128,8 +128,8 @@
               <figcaption class="imgContent">Sicher reisen, entsprannt ankommen.</figcaption>
             </figure>
             <aside class="artAside" id="servicePartner">
-              <details class="artAsideDetails">
-                <summary>
+              <details class="artAsideDetails" open>
+                <summary title="Weitere Infos anzeigen">
                   Wissen worauf es ankommt! Gerade im Bereich der Sicherheit ein wesentlicher Aspekt.  
                 </summary>
                 <ul class="asideDetailsList">
@@ -156,7 +156,7 @@
             </figure>
             <aside class="artAside">
               <details class="artAsideDetails">
-                <summary>
+                <summary title="Weitere Infos anzeigen">
                   Ästhetik, Funktionstücktigkeit und Sauberkeit. Unsere Partner kümmern sich darum.
                 </summary>
                 <ul class="asideDetailsList">
@@ -181,7 +181,7 @@
             </figure>
             <aside class="artAside">
               <details class="artAsideDetails">
-                <summary>
+                <summary title="Weitere Infos anzeigen">
                   Öffentlicher Personennahverkehr auf einem neuen Level. Enge Kooperationen aus den Bereichen Gastronomie und Einzelhandel machen die täglichen Wege für jeden Fahrgast zu einem Erlebnis.
                 </summary>
                 <ul class="asideDetailsList">
@@ -206,7 +206,7 @@
             </figure>
             <aside class="artAside">
               <details class="artAsideDetails">
-                <summary>
+                <summary title="Weitere Infos anzeigen">
                   Unsere Spezialisten aus den Bereichen IT und PR erweitern den Dialog mit Ihren Fahrgästen.
                 </summary>
                 <ul class="asideDetailsList">
@@ -255,7 +255,7 @@
           <p class="contentText">
             Schreiben Sie uns. Wir melden uns umgehend bei Ihnen. (* = Pflichtfeld)
           </p>
-          <form action="" id="contactForm">
+          <form id="contactForm">
             <div class="formElementUnit">
               <label>Frau
                 <input type="radio" name="gender" id="female">
@@ -352,7 +352,7 @@
               <label>Anmeldung für Newsletter
                 <input type="checkbox" name="newsletter" id="newsletter">
               </label>
-              <label>Akzeptieren Sie unsere <a class="contentInlineLink" href="#contact">Datenschutzerklärung</a>?
+              <label>Akzeptieren Sie unsere <a class="contentInlineLink" href="#contact" title="DSGVO-Erklärung">Datenschutzerklärung</a>?
                 <input type="checkbox" name="dsgvo" id="dsgvo">
               </label>
             </div>
@@ -369,6 +369,15 @@
     <footer id="mainFooter">
       <div class="footerBox">
         <p class="footerTxt">&copy; Sebastain Peschl 2022</p>
+      </div>
+      <div class="footerBox">
+        <p>
+          <a href="http://jigsaw.w3.org/css-validator/check/referer">
+              <img style="border:0;width:88px;height:31px"
+                  src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                  alt="CSS ist valide!" />
+              </a>
+          </p>
       </div>
     </footer>
   </div>
