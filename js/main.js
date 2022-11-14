@@ -1,7 +1,7 @@
 // Execute when DOM is ready ...
 $(function() {
     console.log('Ready');
-    const menue = $('#pageNav');
+    const menu = $('#pageNav');
     
     
     const mnB = {
@@ -112,14 +112,14 @@ $(function() {
     });
 
     $('#mainNavButton').on('click', () => {
-        menue.slideToggle();
+        menu.slideToggle();
         mnB.menShown = !mnB.menShown;
         mnB.menShown ? mnB.setMenuButton('openmenu') : mnB.setMenuButton('closemenu');
     });
 
     function setMenuVisibility() {
         if($(window).width() < 1000) {
-            menue.hide();
+            menu.hide();
             mnB.button.css({ 'display': 'block'})
             if(mnB.menShown) {
                 resetButton();
@@ -127,7 +127,7 @@ $(function() {
             }
         } else {
             mnB.button.css({ 'display': 'none'})
-            menue.show();
+            menu.show();
         }
     }
 
@@ -138,7 +138,7 @@ $(function() {
 
     $('.mainNavLink').on('click', () => {
         if($(window).width() < 1000) {
-            menue.slideToggle();
+            menu.slideToggle();
             mnB.menShown = !mnB.menShown;
             resetButton();
         }
