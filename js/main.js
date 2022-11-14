@@ -78,6 +78,11 @@ $(function() {
             for(configuration in selection) {
                 this[configuration].css(selection[configuration])
             }
+        },
+
+        resetButton() {
+            this.setMenuButton('leave');
+            this.setMenuButton('default');
         }
     }
 
@@ -107,22 +112,35 @@ $(function() {
         mnB.setMenuButton('closedover');
     });
 
-    $('#mainNavButton').on('mouseleave', () => {
+    mnB.button.on('mouseleave', () => {
         mnB.setMenuButton('leave');  
     });
 
-    $('#mainNavButton').on('click', () => {
+    mnB.button.on('click', () => {
         menu.slideToggle();
         mnB.menShown = !mnB.menShown;
         mnB.menShown ? mnB.setMenuButton('openmenu') : mnB.setMenuButton('closemenu');
     });
+
+    $('.mainNavLink').on('click', () => {
+        if($(window).width() < 1000) {
+            menu.slideToggle();
+            mnB.menShown = !mnB.menShown;
+            mnB.resetButton();
+        }
+    });
+    
+    $(window).on('resize', () => {
+        setMenuVisibility();
+    });
+
 
     function setMenuVisibility() {
         if($(window).width() < 1000) {
             menu.hide();
             mnB.button.css({ 'display': 'block'})
             if(mnB.menShown) {
-                resetButton();
+                mnB.resetButton();
                 mnB.menShown = !mnB.menShown;
             }
         } else {
@@ -131,26 +149,8 @@ $(function() {
         }
     }
 
-    function resetButton() {
-        mnB.setMenuButton('leave');
-        mnB.setMenuButton('default');
-    }
-
-    $('.mainNavLink').on('click', () => {
-        if($(window).width() < 1000) {
-            menu.slideToggle();
-            mnB.menShown = !mnB.menShown;
-            resetButton();
-        }
-    });
-    
     
     setMenuVisibility();
-
-    $(window).on('resize', () => {
-        setMenuVisibility();
-    });
-
 
     //  =======================================================================
     //  fancy canvas stuff
@@ -158,15 +158,15 @@ $(function() {
 });
 
 function initMyNameCanvas() {
-    const myNameCanvas = $('#myName');
-    const ctx = myNameCanvas[0].getContext('2d');
+    const myNameCanvas = document.querySelector('#myName');
+    const ctx = myNameCanvas.getContext('2d');
 
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     ctx.lineCap = "round";
     ctx.translate(20, 20);
 
-    const cmdStack = getCmdStack('Sebastian Peschl');   
+    const cmdStack = getCmdStack('Sebastian Peschl SP');   
         
     for(let i = 0; i < cmdStack.length; i++) {
         if(cmdStack[i].length) {
@@ -318,10 +318,9 @@ function getCmdStack(nameString) {
     const stringBreaks = getStringBreaks(nameString);
     
     let substrings = [];
-    if(stringBreaks.length != 0) {
-        for(let i = 0; i < stringBreaks.length; i++) {
-            substrings.push(nameString.substring(stringBreaks[i], stringBreaks[i+1] || nameString.length));
-        }
+    
+    for(let i = 0; i < stringBreaks.length; i++) {
+        substrings.push(nameString.substring(stringBreaks[i], stringBreaks[i+1] || nameString.length));
     }
 
     let cmdStack = [];
@@ -338,7 +337,6 @@ function getCmdStack(nameString) {
             }
         }
         cmdStack.push({ cmd: 'translate', param: { x: -(writtenLetter), y: 35 } });
-        writtenLetter = 0;
     }
     return cmdStack;
 }
