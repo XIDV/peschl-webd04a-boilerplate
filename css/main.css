@@ -370,8 +370,8 @@ img.imgContent {
 }
 
 #myName {
-    width: 350px;
-    height: 100px;
+    /* width: 350px;
+    height: 100px; */
     border: solid thin var(--myDarkBlue);
 }
 

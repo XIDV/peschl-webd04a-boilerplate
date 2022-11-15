@@ -166,7 +166,7 @@ function initMyNameCanvas() {
     ctx.lineCap = "round";
     ctx.translate(20, 20);
 
-    const cmdStack = getCmdStack('Sebastian Peschl SP');   
+    const cmdStack = getCmdStack('Sebastian Peschl');   
         
     for(let i = 0; i < cmdStack.length; i++) {
         if(cmdStack[i].length) {
